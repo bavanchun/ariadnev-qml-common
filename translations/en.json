@@ -8,7 +8,7 @@
   {
     "term": "Actions",
     "context": "Actions",
-    "reference": "Widgets/DankIconPicker.qml:52",
+    "reference": "Widgets/AdvIconPicker.qml:52",
     "comment": ""
   },
   {
@@ -32,13 +32,13 @@
   {
     "term": "Choose icon",
     "context": "Choose icon",
-    "reference": "Widgets/DankIconPicker.qml:101",
+    "reference": "Widgets/AdvIconPicker.qml:101",
     "comment": ""
   },
   {
     "term": "Communication",
     "context": "Communication",
-    "reference": "Widgets/DankIconPicker.qml:36",
+    "reference": "Widgets/AdvIconPicker.qml:36",
     "comment": ""
   },
   {
@@ -62,7 +62,7 @@
   {
     "term": "Development",
     "context": "Development",
-    "reference": "Widgets/DankIconPicker.qml:32",
+    "reference": "Widgets/AdvIconPicker.qml:32",
     "comment": ""
   },
   {
@@ -110,7 +110,7 @@
   {
     "term": "Fun",
     "context": "Fun",
-    "reference": "Widgets/DankIconPicker.qml:60",
+    "reference": "Widgets/AdvIconPicker.qml:60",
     "comment": ""
   },
   {
@@ -152,7 +152,7 @@
   {
     "term": "Media",
     "context": "Media",
-    "reference": "Widgets/DankIconPicker.qml:40",
+    "reference": "Widgets/AdvIconPicker.qml:40",
     "comment": ""
   },
   {
@@ -182,13 +182,13 @@
   {
     "term": "Navigation",
     "context": "Navigation",
-    "reference": "Widgets/DankIconPicker.qml:48",
+    "reference": "Widgets/AdvIconPicker.qml:48",
     "comment": ""
   },
   {
     "term": "Numbers",
     "context": "Numbers",
-    "reference": "Widgets/DankIconPicker.qml:24",
+    "reference": "Widgets/AdvIconPicker.qml:24",
     "comment": ""
   },
   {
@@ -242,13 +242,13 @@
   {
     "term": "Search for a location...",
     "context": "Search for a location...",
-    "reference": "Widgets/DankLocationSearch.qml:21",
+    "reference": "Widgets/AdvLocationSearch.qml:21",
     "comment": ""
   },
   {
     "term": "Search...",
     "context": "Search...",
-    "reference": "Widgets/DankDropdown.qml:403",
+    "reference": "Widgets/AdvDropdown.qml:403",
     "comment": ""
   },
   {
@@ -272,7 +272,7 @@
   {
     "term": "Status",
     "context": "Status",
-    "reference": "Widgets/DankIconPicker.qml:56",
+    "reference": "Widgets/AdvIconPicker.qml:56",
     "comment": ""
   },
   {
@@ -290,7 +290,7 @@
   {
     "term": "System",
     "context": "System",
-    "reference": "Widgets/DankIconPicker.qml:44",
+    "reference": "Widgets/AdvIconPicker.qml:44",
     "comment": ""
   },
   {
@@ -320,7 +320,7 @@
   {
     "term": "Workspace",
     "context": "Workspace",
-    "reference": "Widgets/DankIconPicker.qml:28",
+    "reference": "Widgets/AdvIconPicker.qml:28",
     "comment": ""
   }
 ]

@@ -1,25 +1,30 @@
-# dank-qml-common
+# ariadnev-qml-common
 
-Common QML assets for DMS, Dank Calendar, and the rest of the Dank Linux Suite.
+Common QML assets shared by AriadnevShell and related Ariadnev tools.
 
-The library lives in `DankCommon/` and is consumed through Quickshell's `qs.` namespace:
+> **Attribution** — This project is derived from
+> [dank-qml-common](https://github.com/AvengeMedia/dank-qml-common) by Avenge Media LLC,
+> used under the MIT License. The original copyright notice is retained in `LICENSE`.
+> AriadnevShell is an independent fork and is not affiliated with or endorsed by Avenge Media.
+
+The library lives in `AdvCommon/` and is consumed through Quickshell's `qs.` namespace:
 
 ```qml
-import qs.DankCommon.Widgets
-import qs.DankCommon.Common
-import qs.DankCommon.Modals.FileBrowser
-import qs.DankCommon.Session
+import qs.AdvCommon.Widgets
+import qs.AdvCommon.Common
+import qs.AdvCommon.Modals.FileBrowser
+import qs.AdvCommon.Session
 ```
 
-`DankCommon/Session/` holds the components shared between the DMS lock screen and [dms-greeter](https://github.com/AvengeMedia/dank-greeter): the power menu (`LockPowerMenu`) and the on-screen keyboard (`Keyboard`, `KeyboardController`, `CustomButtonKeyboard`). `DankCommon/Common/LayoutCodes.js` (keyboard layout name → short code) is imported by relative path.
+`AdvCommon/Session/` holds the components shared between the ADVS lock screen and [advs-greeter](https://github.com/bavanchun/adv-greeter): the power menu (`LockPowerMenu`) and the on-screen keyboard (`Keyboard`, `KeyboardController`, `CustomButtonKeyboard`). `AdvCommon/Common/LayoutCodes.js` (keyboard layout name → short code) is imported by relative path.
 
 ## Consuming from an app
 
 Add this repo as a git submodule at the app repo root, then symlink it into the quickshell config root:
 
 ```sh
-git submodule add https://github.com/AvengeMedia/dank-qml-common.git dank-qml-common
-ln -s ../dank-qml-common/DankCommon quickshell/DankCommon
+git submodule add https://github.com/bavanchun/ariadnev-qml-common.git ariadnev-qml-common
+ln -s ../ariadnev-qml-common/AdvCommon quickshell/AdvCommon
 ```
 
 Anything that copies the quickshell tree for packaging must dereference the symlink (`cp -rL`) - `go:embed` and most packaging flows reject symlinks.
@@ -29,7 +34,7 @@ Anything that copies the quickshell tree for packaging must dereference the syml
 The repo root is a runnable Quickshell config with stub singletons and a widget gallery:
 
 ```sh
-qs -c /path/to/dank-qml-common
+qs -c /path/to/ariadnev-qml-common
 ```
 
 For qmlls completion, create an empty `.qmlls.ini` at the repo root once (`touch .qmlls.ini`, gitignored) - quickshell replaces it with a generated config on the next launch, and every file in the repo gets language-server support. The stubs in `Common/` and `Services/` double as the executable contract below - if a shared widget needs a new singleton property, add it to the stub in the same change.
@@ -44,7 +49,7 @@ Colors: `primary`, `primaryText`, `primaryContainer`, `primaryHover`, `primaryHo
 
 Metrics: `spacingXXS`..`spacingXL`, `fontSizeSmall`..`fontSizeXLarge`, `iconSizeSmall`/`iconSize`/`iconSizeLarge`, `cornerRadius`.
 
-Typography: `fontFamily`, `monoFontFamily`, `defaultFontFamily`, `defaultMonoFontFamily`, `fontWeight`. The library bundles and registers its own fonts (Inter, FiraCode Nerd Font, Material Symbols - `DankCommon/assets/fonts/`) through the `Fonts` singleton in `qs.DankCommon.Common`; apps typically bind `defaultFontFamily: Fonts.sans` and `defaultMonoFontFamily: Fonts.mono` rather than shipping font files of their own.
+Typography: `fontFamily`, `monoFontFamily`, `defaultFontFamily`, `defaultMonoFontFamily`, `fontWeight`. The library bundles and registers its own fonts (Inter, FiraCode Nerd Font, Material Symbols - `AdvCommon/assets/fonts/`) through the `Fonts` singleton in `qs.AdvCommon.Common`; apps typically bind `defaultFontFamily: Fonts.sans` and `defaultMonoFontFamily: Fonts.mono` rather than shipping font files of their own.
 
 Animation: `shorterDuration`, `shortDuration`, `mediumDuration`, `standardEasing`, `emphasizedEasing`, `currentAnimationSpeed`, `expressiveCurves`, `expressiveDurations`.
 
@@ -75,9 +80,9 @@ Used by `LockPowerMenu`: `hibernateSupported` plus `logout()`, `suspend()`, `hib
 
 ## Translations
 
-Widget strings are owned here, not by the consuming apps. `translations/extract_translations.py` scrapes `I18n.tr()` from `DankCommon/` into `translations/en.json`; the DMS POEditor project is the source of truth for translating those terms, and its sync writes the per-locale exports into `DankCommon/translations/poexports/`. Because that directory lives inside `DankCommon/`, translations ship to every consumer with the submodule pointer like any other file.
+Widget strings are owned here, not by the consuming apps. `translations/extract_translations.py` scrapes `I18n.tr()` from `AdvCommon/` into `translations/en.json`; the ADVS POEditor project is the source of truth for translating those terms, and its sync writes the per-locale exports into `AdvCommon/translations/poexports/`. Because that directory lives inside `AdvCommon/`, translations ship to every consumer with the submodule pointer like any other file.
 
-Consuming apps keep their own POEditor projects app-only (their extractors must not descend into `DankCommon/`) and merge both sources at runtime in their `I18n` singleton - app terms win on collision.
+Consuming apps keep their own POEditor projects app-only (their extractors must not descend into `AdvCommon/`) and merge both sources at runtime in their `I18n` singleton - app terms win on collision.
 
 ## Making changes
 
@@ -85,5 +90,5 @@ The submodule is a real worktree; edit it in place inside whichever app you are 
 
 ## Notes
 
-- `Common/Proc.qml` exposes `dmsBin` (`DMS_EXECUTABLE` env override) as a DMS convenience; it is inert elsewhere.
-- Log stays app-owned so each app keeps its own env-var prefix (`DMS_LOG_LEVEL`, `DANKCAL_LOG_LEVEL`, ...).
+- `Common/Proc.qml` exposes `dmsBin` (`ADVS_EXECUTABLE` env override) as a ADVS convenience; it is inert elsewhere.
+- Log stays app-owned so each app keeps its own env-var prefix (`ADVS_LOG_LEVEL`, ...).

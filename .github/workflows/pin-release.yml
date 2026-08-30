@@ -1,6 +1,6 @@
 name: Pin release
 
-# Pins this repo to a DankMaterialShell release version. Dispatched by the DMS
+# Pins this repo to a AriadnevShell release version. Dispatched by the ADVS
 # Release workflow; the tag push that lands here runs Create Release.
 
 on:
@@ -60,7 +60,7 @@ jobs:
             exit 0
           fi
 
-          # X.Y.0 always tags, to keep the version aligned with DMS.
+          # X.Y.0 always tags, to keep the version aligned with ADVS.
           if [ "$FORCE" = "true" ] || [ "${tag##*.}" = "0" ]; then
             echo "proceed=true" >> "$GITHUB_OUTPUT"
             exit 0
@@ -90,8 +90,8 @@ jobs:
           VERSION: ${{ steps.decide.outputs.version }}
         run: |
           set -euo pipefail
-          git config user.name "dms-ci[bot]"
-          git config user.email "dms-ci[bot]@users.noreply.github.com"
+          git config user.name "advs-ci[bot]"
+          git config user.email "advs-ci[bot]@users.noreply.github.com"
 
           echo "${VERSION}" > VERSION
           git add VERSION

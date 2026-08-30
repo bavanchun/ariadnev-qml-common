@@ -3,9 +3,9 @@
 import QtQuick
 import Quickshell
 import qs.Common
-import qs.DankCommon.Common
-import qs.DankCommon.Modals.FileBrowser
-import qs.DankCommon.Widgets
+import qs.AdvCommon.Common
+import qs.AdvCommon.Modals.FileBrowser
+import qs.AdvCommon.Widgets
 import qs.Services
 
 ShellRoot {
@@ -14,7 +14,7 @@ ShellRoot {
     FloatingWindow {
         id: window
 
-        title: "DankCommon Gallery"
+        title: "AdvCommon Gallery"
         implicitWidth: 760
         implicitHeight: 720
         color: Theme.surface
@@ -26,7 +26,7 @@ ShellRoot {
             color: Theme.primary
         }
 
-        DankFlickable {
+        AdvFlickable {
             anchors.fill: parent
             anchors.margins: Theme.spacingL
             contentHeight: gallery.height
@@ -45,7 +45,7 @@ ShellRoot {
                 Row {
                     spacing: Theme.spacingM
 
-                    DankButton {
+                    AdvButton {
                         id: clickButton
 
                         property int clicks: 0
@@ -55,7 +55,7 @@ ShellRoot {
                         onClicked: clicks++
                     }
 
-                    DankButton {
+                    AdvButton {
                         text: "Pick a file"
                         iconName: "folder_open"
                         backgroundColor: Theme.surfaceVariant
@@ -63,7 +63,7 @@ ShellRoot {
                         onClicked: fileBrowser.open()
                     }
 
-                    DankButton {
+                    AdvButton {
                         text: "Pick a folder"
                         iconName: "folder"
                         backgroundColor: Theme.surfaceVariant
@@ -71,7 +71,7 @@ ShellRoot {
                         onClicked: folderBrowser.open()
                     }
 
-                    DankActionButton {
+                    AdvActionButton {
                         id: tooltipButton
 
                         iconName: "info"
@@ -84,7 +84,7 @@ ShellRoot {
                     text: "Button groups"
                 }
 
-                DankButtonGroup {
+                AdvButtonGroup {
                     id: viewGroup
 
                     model: ["List", "Grid", "Tree"]
@@ -95,7 +95,7 @@ ShellRoot {
                     }
                 }
 
-                DankButtonGroup {
+                AdvButtonGroup {
                     id: daysGroup
 
                     model: ["Mon", "Tue", "Wed", "Thu", "Fri"]
@@ -107,7 +107,7 @@ ShellRoot {
                     text: "Toggles"
                 }
 
-                DankToggle {
+                AdvToggle {
                     id: featureToggle
 
                     text: "Interactive toggle"
@@ -116,7 +116,7 @@ ShellRoot {
                     onToggled: checked => featureToggle.checked = checked
                 }
 
-                DankToggle {
+                AdvToggle {
                     id: gatedToggle
 
                     text: "Gated toggle"
@@ -132,7 +132,7 @@ ShellRoot {
                 Row {
                     spacing: Theme.spacingM
 
-                    DankTextField {
+                    AdvTextField {
                         width: 300
                         labelText: "Name"
                         leftIconName: "badge"
@@ -140,7 +140,7 @@ ShellRoot {
                         showClearButton: true
                     }
 
-                    DankTextField {
+                    AdvTextField {
                         width: 300
                         labelText: "Password"
                         leftIconName: "lock"
@@ -150,7 +150,7 @@ ShellRoot {
                     }
                 }
 
-                DankTextEdit {
+                AdvTextEdit {
                     width: 616
                     leftIconName: "edit"
                     placeholderText: "Multi-line notes..."
@@ -160,7 +160,7 @@ ShellRoot {
                     text: "Dropdown"
                 }
 
-                DankDropdown {
+                AdvDropdown {
                     id: fruitDropdown
 
                     width: 320
@@ -179,38 +179,38 @@ ShellRoot {
                 Row {
                     spacing: Theme.spacingM
 
-                    DankIcon {
+                    AdvIcon {
                         name: "palette"
                         color: Theme.primary
                     }
 
-                    DankIcon {
+                    AdvIcon {
                         name: "favorite"
                         filled: true
                         color: Theme.error
                     }
 
-                    DankNFIcon {
+                    AdvNFIcon {
                         name: "arch"
                         size: Theme.iconSizeLarge
                     }
 
-                    DankNFIcon {
+                    AdvNFIcon {
                         name: "file"
                         size: Theme.iconSizeLarge
                     }
 
-                    DankColorSwatch {
+                    AdvColorSwatch {
                         swatchColor: Theme.primary
                         anchors.verticalCenter: parent.verticalCenter
                     }
 
-                    DankColorSwatch {
+                    AdvColorSwatch {
                         swatchColor: Theme.withAlpha(Theme.secondary, 0.5)
                         anchors.verticalCenter: parent.verticalCenter
                     }
 
-                    DankSpinner {
+                    AdvSpinner {
                         size: Theme.iconSizeLarge
                     }
                 }
@@ -225,7 +225,7 @@ ShellRoot {
                     color: Theme.surfaceContainer
                     radius: Theme.cornerRadius
 
-                    DankListView {
+                    AdvListView {
                         anchors.fill: parent
                         anchors.margins: Theme.spacingS
                         clip: true
@@ -267,7 +267,7 @@ ShellRoot {
                     color: Theme.surfaceContainer
                     radius: Theme.cornerRadius
 
-                    DankGridView {
+                    AdvGridView {
                         anchors.fill: parent
                         anchors.margins: Theme.spacingS
                         clip: true
@@ -333,7 +333,7 @@ ShellRoot {
                     text: "Sliders and progress"
                 }
 
-                DankSlider {
+                AdvSlider {
                     width: 340
                     value: 40
                     leftIcon: "volume_down"
@@ -352,7 +352,7 @@ ShellRoot {
                     text: "Tabs"
                 }
 
-                DankTabBar {
+                AdvTabBar {
                     width: 340
                     model: [
                         {
@@ -375,7 +375,7 @@ ShellRoot {
                     text: "Filter chips"
                 }
 
-                DankFilterChips {
+                AdvFilterChips {
                     width: 340
                     model: ["All", "Active", "Muted"]
                     onSelectionChanged: index => log.info("chip:", index)
@@ -385,7 +385,7 @@ ShellRoot {
                     text: "Collapsible section"
                 }
 
-                DankCollapsibleSection {
+                AdvCollapsibleSection {
                     width: 340
                     title: "Details"
                     description: "Expands and collapses"
@@ -401,7 +401,7 @@ ShellRoot {
                     text: "Number stepper"
                 }
 
-                DankNumberStepper {
+                AdvNumberStepper {
                     property int count: 5
 
                     text: count
@@ -416,7 +416,7 @@ ShellRoot {
                 Row {
                     spacing: Theme.spacingL
 
-                    DankCircularImage {
+                    AdvCircularImage {
                         width: 48
                         height: 48
                         fallbackIcon: "person"
@@ -443,7 +443,7 @@ ShellRoot {
                     text: "Icon picker"
                 }
 
-                DankIconPicker {
+                AdvIconPicker {
                     onIconSelected: (iconName, iconType) => log.info("icon:", iconName, iconType)
                 }
 
@@ -451,7 +451,7 @@ ShellRoot {
                     text: "Location search"
                 }
 
-                DankLocationSearch {
+                AdvLocationSearch {
                     width: 340
                     onLocationSelected: (displayName, coordinates) => log.info("location:", displayName, coordinates)
                 }
@@ -467,14 +467,14 @@ ShellRoot {
                         id: blinkTarget
 
                         anchors.verticalCenter: parent.verticalCenter
-                        text: "DankBlink target"
+                        text: "AdvBlink target"
                     }
 
-                    DankBlink {
+                    AdvBlink {
                         target: blinkTarget
                     }
 
-                    DankTextCursor {
+                    AdvTextCursor {
                         height: 20
                     }
                 }
@@ -486,7 +486,7 @@ ShellRoot {
             }
         }
 
-        DankTooltipV2 {
+        AdvTooltipV2 {
             id: tooltip
         }
     }
