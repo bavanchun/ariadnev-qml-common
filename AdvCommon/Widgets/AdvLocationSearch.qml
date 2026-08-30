@@ -79,7 +79,7 @@ Item {
                 root.currentSearchText = searchLocation;
                 const encodedLocation = encodeURIComponent(searchLocation);
                 const searchUrl = "https://nominatim.openstreetmap.org/search?q=" + encodedLocation + "&format=json&limit=5&addressdetails=1";
-                Proc.runCommand("locationSearch", [Proc.dmsBin, "dl", "-4", "--timeout", "10", searchUrl], (output, exitCode) => {
+                Proc.runCommand("locationSearch", [Proc.advsBin, "dl", "-4", "--timeout", "10", searchUrl], (output, exitCode) => {
                     root.isLoading = false;
                     if (exitCode !== 0) {
                         searchResultsModel.clear();

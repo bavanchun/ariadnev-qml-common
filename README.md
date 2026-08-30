@@ -90,5 +90,5 @@ The submodule is a real worktree; edit it in place inside whichever app you are 
 
 ## Notes
 
-- `Common/Proc.qml` exposes `dmsBin` (`ADVS_EXECUTABLE` env override) as a ADVS convenience; it is inert elsewhere.
+- `Common/Proc.qml` exposes `advsBin` (`ADVS_EXECUTABLE` env override) as a ADVS convenience; it is inert elsewhere.
 - Log stays app-owned so each app keeps its own env-var prefix (`ADVS_LOG_LEVEL`, ...).
